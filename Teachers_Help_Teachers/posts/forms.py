@@ -13,3 +13,16 @@ class PostForm(ModelForm):
     class Meta:
         model = Post
         fields = ('title','contributors','grade_level','subject','description','lesson_plan')
+        widgets = { 'title':forms.TextInput(attrs={'class' : 'form-control', 'placeholder': 'Title'}), 
+                   'contributors': forms.TextInput(attrs={'class' : 'form-control', 'placeholder': 'Contriubutors'}), 
+                   'grade_level':forms.TextInput(attrs={'class' : 'form-control', 'placeholder': 'Grade Level'}), 
+                   'subject': forms.TextInput(attrs={'class' : 'form-control', 'placeholder': 'Subject Area'}),  
+                   'description': forms.Textarea(attrs={'class' : 'form-control', 'placeholder': 'Description of Item'}), }
+        
+        labels = { 'title':'', 
+                   'contributors': '', 
+                   'grade_level':'', 
+                   'subject': '',  
+                   'description': '' }
+
+        
