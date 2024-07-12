@@ -10,3 +10,4 @@ class Post(models.Model):
     subject = models.CharField(max_length = 25)
     description = models.TextField()
     lesson_plan = models.FileField(upload_to='Uploaded_Files/', null=True)
+    verified = models.BooleanField(default=False)
