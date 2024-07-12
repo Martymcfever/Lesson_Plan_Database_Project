@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import PostForm
 from django.utils import timezone
 from django.http import HttpResponseRedirect
+from .models import Post
 
 def home(request):
     return render(request, "home.html")
@@ -23,7 +24,7 @@ def add_function(request):
 def search_function(request):
     if request.method == "POST":
         searched = request.POST['searched']
-        results = Posts.objects.filter(name__contains=searched)
+        results = Post.objects.filter(name__contains=searched)
 
         return render(request, "search_function.html",{'searched':searched, 'results':results})
     else:
