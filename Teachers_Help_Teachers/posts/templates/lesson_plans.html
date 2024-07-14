@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <h1>Lesson Plans</h1>
+{% for lesson in lesson_plan_list %}
+
+<div class="card">
+    <div class="card-header">
+        <strong> Contributor:</strong> {{ lesson.contributors }}</strong>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{ lesson.title }}</h5>
+      <p class="card-text">
+        <ul>
+            <strong>Date Published: </strong>{{ lesson.pub_date }}<br>
+            
+            <strong>Grade Level:</strong> {{ lesson.grade_level }}<br>
+            <strong>Subject:</strong> {{ lesson.subject }}<br>
+            <strong>Short Description:</strong> {{ lesson.description }}<br>
+
+        
+            </ul>
+            <br>
+
+
+      </p>
+      <strong>Download Lesson Plan:</strong><br>
+      <a {{ lesson.lesson_plan.web }} class="btn btn-primary">{{ lesson.lesson_plan }} (Need to figure out how to Make this a link after we know how we want to do this section)</a>
+    </div>
+  </div>
+
+    {% endfor %}
+{% endblock %}

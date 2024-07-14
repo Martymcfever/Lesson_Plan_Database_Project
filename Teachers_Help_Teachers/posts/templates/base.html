@@ -22,11 +22,17 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
                 </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'plans' %}">Lesson Plans</a>
+                </li>
                 <li>
                     <a class="nav-link" href="{% url 'search' %}">Search</a>
                 </li>
                 <li>
                     <a class="nav-link" href="{% url 'add' %}">Add</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="{% url 'one_plan' %}">All Plans</a>
                 </li>
                 <form class="d-flex" method=POST action="{%url 'search'%}">
                     {% csrf_token %}

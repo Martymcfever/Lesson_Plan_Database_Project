@@ -2,10 +2,30 @@ from django.shortcuts import render, redirect
 from .forms import PostForm
 from django.utils import timezone
 from django.http import HttpResponseRedirect
+from .models import Post
 
 
 def home(request):
     return render(request, "home.html")
+
+
+def plans(request):
+    lesson_plan_list = Post.objects.all()
+   
+    return render(request, "lesson_plans.html", {'lesson_plan_list': lesson_plan_list})
+
+
+def one_lesson_plan(request):
+    one_plan = Post.objects.all()
+   
+    return render(request, "one_lesson_plan.html", {'one_plan': one_plan})
+
+def show_lesson_plan(request, plan_id):
+    lesson_plan = Post.objects.get(pk=plan_id)
+ 
+    return render(request, "show_lesson_plan.html", {'lesson_plan': lesson_plan})
+
+
 
 def add_function(request):
     if (request.method == "POST"):
@@ -24,7 +44,7 @@ def add_function(request):
 def search_function(request):
     if request.method == "POST":
         searched = request.POST['searched']
-        results = posts.objects.filter(name__contains=searched)
+        results = Post.objects.filter(title__contains=searched)
 
         return render(request, "search_function.html",{'searched':searched, 'results':results})
     else:
