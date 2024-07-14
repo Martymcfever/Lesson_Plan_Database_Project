@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Lesson Plans </h1>
+<br>
+{% for plan in one_plan %}
+    <a href="{% url 'show_plan' plan.id %}">{{ plan }}</a><br>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1><strong>Lesson Plan</strong></h1>
+<div class="card">     
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{ lesson_plan.title }}</h5>
+      <p class="card-text">
+        <ul>
+            <strong>Contributor: </strong>{{ lesson_plan.contributors }}<br>
+            <strong>Date Published: </strong>{{ lesson_plan.pub_date }}<br>
+            <strong>Grade Level:</strong> {{ lesson_plan.grade_level }}<br>
+            <strong>Subject:</strong> {{ lesson_plan.subject }}<br>
+            <strong>Short Description:</strong> {{ lesson_plan.description }}<br>
+
+        
+            </ul>
+            <br>
+
+
+      </p>
+      <strong>Download Lesson Plan:</strong><br>
+      <a {{ lesson.lesson_plan }} class="btn btn-primary">(Need to figure out how to make this work)</a>
+    </div>
+
+
+{% endblock %}
