@@ -1,1 +1,20 @@
 {% extends 'base.html' %}
+
+{% block content %}
+
+        {%if searched%}
+            <h1>You Searched For {{ searched }} </h1>
+            <br/>
+            {% for result in results %}
+                <a href="{% url 'show_plan' result.id %}">{{ result }}</a><br>
+            {% endfor %}
+
+        {% else %}
+            <h1>You Forgot To Search For A Lesson Plan</h1>
+        {% endif %}
+
+
+
+
+
+{% endblock %}
