@@ -11,3 +11,7 @@ class Post(models.Model):
     description = models.TextField()
     lesson_plan = models.FileField(upload_to='Uploaded_Files/', null=True)
     verified = models.BooleanField(default=False)
+
+
+def __str__(self):
+    return self.title  
