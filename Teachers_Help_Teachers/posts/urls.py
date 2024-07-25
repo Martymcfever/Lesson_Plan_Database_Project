@@ -1,6 +1,13 @@
+"""@package docstring 
+urls.py
+list of paths that is utilized for the webpage
+"""
+
 from django.urls import path
 from . import views
 
+""" urlpatterns list that holds paths of urls
+"""
 urlpatterns = [
     path("", views.home, name="home"),
     path('Lesson Plans', views.plans, name="plans"),
