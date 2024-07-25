@@ -1,3 +1,8 @@
+"""@package docstring 
+views.py 
+File that holds methods of how webpages and functions are done on the website
+"""
+
 from django.shortcuts import render, redirect, HttpResponse
 from .forms import PostForm
 from django.utils import timezone
@@ -6,22 +11,23 @@ from .models import Post
 
 
 
-
+"""Home method that displays the homepage of the webpage"""
 def home(request):
     return render(request, "home.html")
 
-
+"""Plans method gives lesson_plans.htmnl the list of objects in Post Model"""
 def plans(request):
     lesson_plan_list = Post.objects.all()
    
     return render(request, "lesson_plans.html", {'lesson_plan_list': lesson_plan_list})
 
-
+"""one_lesson_plan method shows all titles of lesson plans on a single path of the webpage"""
 def one_lesson_plan(request):
     one_plan = Post.objects.all()
    
     return render(request, "one_lesson_plan.html", {'one_plan': one_plan})
 
+"""show_lesson_plan gives comprehensive view of a single lesson plan"""
 def show_lesson_plan(request, plan_id):
     lesson_plan = Post.objects.get(pk=plan_id)
     
@@ -33,7 +39,9 @@ def download_file(request, plan_id):
     response = FileResponse(open(filename, 'rb'))
     return response
 
-
+"""add_function uses PostForm to form add objects to Post Model.
+Tests if the form is valid determine if PostForm is complete
+"""
 def add_function(request):
     if (request.method == "POST"):
         form = PostForm(request.POST,request.FILES)
@@ -47,7 +55,7 @@ def add_function(request):
             
     return render(request, "add_function.html", {'form': form} )
     
-
+"""search_function allows for the search bar on the webpage to work"""
 def search_function(request):
     if request.method == "POST":
         searched = request.POST['searched']
