@@ -1,0 +1,33 @@
+digraph "Graphical Class Hierarchy"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node0 [id="Node000000",label="migrations.Migration",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node0 -> Node1 [id="edge3_Node000000_Node000001",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node1 [id="Node000001",label="posts.migrations.0001\l_initial.Migration",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classposts_1_1migrations_1_10001__initial_1_1_migration.html",tooltip=" "];
+  Node0 -> Node2 [id="edge4_Node000000_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="posts.migrations.0002\l_rename_posts_post.Migration",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classposts_1_1migrations_1_10002__rename__posts__post_1_1_migration.html",tooltip=" "];
+  Node0 -> Node3 [id="edge5_Node000000_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="posts.migrations.0003\l_post_lesson_plan.Migration",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classposts_1_1migrations_1_10003__post__lesson__plan_1_1_migration.html",tooltip=" "];
+  Node0 -> Node4 [id="edge6_Node000000_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="posts.migrations.0004\l_alter_post_lesson_plan.Migration",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classposts_1_1migrations_1_10004__alter__post__lesson__plan_1_1_migration.html",tooltip=" "];
+  Node0 -> Node5 [id="edge7_Node000000_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="posts.migrations.0005\l_alter_post_description.Migration",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classposts_1_1migrations_1_10005__alter__post__description_1_1_migration.html",tooltip=" "];
+  Node0 -> Node6 [id="edge8_Node000000_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="posts.migrations.0006\l_alter_post_lesson_plan.Migration",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classposts_1_1migrations_1_10006__alter__post__lesson__plan_1_1_migration.html",tooltip=" "];
+  Node0 -> Node7 [id="edge9_Node000000_Node000007",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node7 [id="Node000007",label="posts.migrations.0007\l_alter_post_lesson_plan.Migration",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classposts_1_1migrations_1_10007__alter__post__lesson__plan_1_1_migration.html",tooltip=" "];
+  Node0 -> Node8 [id="edge10_Node000000_Node000008",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node8 [id="Node000008",label="posts.migrations.0008\l_alter_post_lesson_plan.Migration",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classposts_1_1migrations_1_10008__alter__post__lesson__plan_1_1_migration.html",tooltip=" "];
+  Node0 -> Node9 [id="edge11_Node000000_Node000009",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node9 [id="Node000009",label="posts.migrations.0009\l_alter_post_pub_date.Migration",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classposts_1_1migrations_1_10009__alter__post__pub__date_1_1_migration.html",tooltip=" "];
+  Node0 -> Node10 [id="edge12_Node000000_Node000010",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node10 [id="Node000010",label="posts.migrations.0010\l_post_is_verified.Migration",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classposts_1_1migrations_1_10010__post__is__verified_1_1_migration.html",tooltip=" "];
+  Node0 -> Node11 [id="edge13_Node000000_Node000011",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node11 [id="Node000011",label="posts.migrations.0011\l_rename_is_verified_post\l_verified.Migration",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classposts_1_1migrations_1_10011__rename__is__verified__post__verified_1_1_migration.html",tooltip=" "];
+  Node0 -> Node12 [id="edge14_Node000000_Node000012",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node12 [id="Node000012",label="posts.migrations.0012\l_alter_post_title.Migration",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classposts_1_1migrations_1_10012__alter__post__title_1_1_migration.html",tooltip=" "];
+}
