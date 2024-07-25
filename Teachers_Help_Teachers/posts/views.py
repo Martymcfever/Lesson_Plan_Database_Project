@@ -1,8 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from .forms import PostForm
 from django.utils import timezone
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, FileResponse
 from .models import Post
+
+
 
 
 def home(request):
@@ -22,9 +24,14 @@ def one_lesson_plan(request):
 
 def show_lesson_plan(request, plan_id):
     lesson_plan = Post.objects.get(pk=plan_id)
- 
+    
     return render(request, "show_lesson_plan.html", {'lesson_plan': lesson_plan})
 
+def download_file(request, plan_id):
+    plan = Post.objects.get(id = plan_id)
+    filename = plan.lesson_plan.path
+    response = FileResponse(open(filename, 'rb'))
+    return response
 
 
 def add_function(request):
