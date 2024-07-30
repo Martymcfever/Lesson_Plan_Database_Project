@@ -64,3 +64,27 @@ class AddFunctionViewTest(TestCase):
         response = self.client.get(self.add_url)
         self.assertIsInstance(response.context['form'], PostForm)
 
+class SearchFunctionViewTest(TestCase):
+
+    def setUp(self):
+        self.client = Client()
+        self.search_url = reverse('search')  # use the actual name of search_function url
+        self.test_post = Post.objects.create(title='test_title')  # create a post to search for
+
+    def test_search_function_POST(self):
+        response = self.client.post(self.search_url, {'searched': 'test_title'})
+
+
+        # Check the response status
+        self.assertEqual(response.status_code, 200)
+
+        # Check that the response context contains the 'searched' query and 'results'
+        self.assertEqual(response.context['searched'], 'test_title')
+        self.assertIn(self.test_post, response.context['results'])
+
+    def test_search_function_no_POST_data(self):
+        response = self.client.get(self.search_url)
+
+        # Check the response status
+        self.assertEqual(response.status_code, 200)
+
