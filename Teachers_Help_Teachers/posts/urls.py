@@ -7,6 +7,7 @@ urlpatterns = [
     path("add", views.add_function, name="add"),
     path("search", views.search_function, name="search"),     
     path("one_lesson_plan", views.one_lesson_plan, name="one_plan"),
-    path("show_lesson_plan/<plan_id>", views.show_lesson_plan, name="show_plan"),   
+    path("show_lesson_plan/<plan_id>", views.show_lesson_plan, name="show_plan"),
+    path("download/<plan_id>", views.download_file, name="download"),
     
 ]

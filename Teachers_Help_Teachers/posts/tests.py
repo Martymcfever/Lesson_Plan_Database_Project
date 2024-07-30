@@ -4,6 +4,8 @@ from django.urls import reverse
 from .forms import PostForm
 from datetime import datetime
 from .views import *
+from .models import Post
+from posts.views import download_file
 # Create your tests here.
 
 
@@ -88,3 +90,31 @@ class SearchFunctionViewTest(TestCase):
         # Check the response status
         self.assertEqual(response.status_code, 200)
 
+
+class DownloadFileViewTest(TestCase):
+    def setUp(self):
+        self.client = Client()
+
+        dummy_lesson_file = SimpleUploadedFile("lesson.txt", b"lesson content")  # creates a file for testing
+        self.test_post = Post.objects.create(
+            title='test_title',
+            lesson_plan=dummy_lesson_file,
+            pub_date=datetime.now(),
+            contributors='Contributor(s) Name(s)',
+            grade_level='GL',
+            subject='Subject Name',
+            description='This is a description',
+            verified=False,
+        )
+
+    def test_download_file(self):
+        download_url = reverse('download', args=[
+            self.test_post.id])
+        response = self.client.get(download_url)
+
+        # Check the response status
+        self.assertEqual(response.status_code, 200)
+
+        # Check the content of the response. It should match the content of the test file
+        response_content = b"".join(response.streaming_content)
+        self.assertEqual(response_content, b"lesson content")
