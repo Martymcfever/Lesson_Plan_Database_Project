@@ -6,7 +6,7 @@ File that creates the form that allows the add_function to add objects to the Po
 
 from django import forms
 from django.forms import ModelForm
-from .models import Post
+from .models import Post, Comment
 
 """PostForm class creates the form to allow the add_function to add objects to Post Model"""
 class PostForm(ModelForm):
@@ -37,4 +37,11 @@ class PostForm(ModelForm):
                    'subject': '',  
                    'description': '' }
 
-        
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('name', 'body')
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Contributor'}),
+            'body': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Comment'}),
+        }
