@@ -2,7 +2,7 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import TestCase, Client
 from django.urls import reverse
 from .forms import PostForm
-from datetime import datetime
+from datetime import timezone
 from .views import *
 from .models import Post
 from posts.views import download_file
@@ -13,7 +13,7 @@ class PostModelTestCase(TestCase):
     def setUp(self):
         dummy_file = SimpleUploadedFile('test.txt', b'Test content')
 
-        self.post = Post.objects.create(title='Some title', pub_date=datetime.now(),
+        self.post = Post.objects.create(title='Some title', pub_date=timezone.now(),
                                         contributors='Contributor(s) Name(s)', grade_level='GL', subject='Subject Name',
                                         description='This is a description', lesson_plan=dummy_file, verified=False)
 
@@ -21,14 +21,14 @@ class PostModelTestCase(TestCase):
         dummy_file = SimpleUploadedFile('test.txt', b'Test content')
         record = Post.objects.get(id=self.post.id)
         expected_field1 = record.title
-        expected_field2 = datetime.now()
+        expected_field2 = timezone.now()
         expected_field3 = record.contributors
         expected_field4 = record.grade_level
         expected_field5 = record.subject
         expected_field6 = record.description
         expected_field8 = record.verified
         self.assertEqual(expected_field1, 'Some title')
-        self.assertEqual(expected_field2, datetime.now())
+        self.assertEqual(expected_field2, timezone.now())
         self.assertEqual(expected_field3, 'Contributor(s) Name(s)')
         self.assertEqual(expected_field4, 'GL')
         self.assertEqual(expected_field5, 'Subject Name')
@@ -99,7 +99,7 @@ class DownloadFileViewTest(TestCase):
         self.test_post = Post.objects.create(
             title='test_title',
             lesson_plan=dummy_lesson_file,
-            pub_date=datetime.now(),
+            pub_date=timezone.now(),
             contributors='Contributor(s) Name(s)',
             grade_level='GL',
             subject='Subject Name',
