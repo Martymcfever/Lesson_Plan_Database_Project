@@ -10,33 +10,47 @@ jobs:
       fail-fast: false
       matrix:
         python-version: ["3.12"]
+
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
+
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v3
         with:
           python-version: ${{ matrix.python-version }}
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
       - name: Install Django
         run: |
           python -m pip install Django
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Create directories for media
+        run: sudo mkdir /Uploaded_Files && sudo chown runner:runner/Uploaded_Files
+
       - name: Run Django test for Post Model
         run: |
           cd Teachers_Help_Teachers
           python manage.py test posts.tests.PostModelTestCase
+
       - name: Run Django test for the Add Function
         run: |
           cd Teachers_Help_Teachers
           python manage.py test posts.tests.AddFunctionViewTest
+
       - name: Run Django test for the Search Function
         run: |
           cd Teachers_Help_Teachers
           python manage.py test posts.tests.SearchFunctionViewTest
+
       - name: Run Django test for Download File
         run: |
           cd Teachers_Help_Teachers
