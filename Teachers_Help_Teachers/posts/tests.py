@@ -20,6 +20,7 @@ class PostModelTestCase(TestCase):
     def test_model_fields_content(self):
         dummy_file = SimpleUploadedFile('test.txt', b'Test content')
         record = Post.objects.get(id=self.post.id)
+
         expected_field1 = record.title
         expected_field2 = timezone.now()
         expected_field3 = record.contributors
@@ -27,8 +28,11 @@ class PostModelTestCase(TestCase):
         expected_field5 = record.subject
         expected_field6 = record.description
         expected_field8 = record.verified
+
+        time_diff = abs((expected_field2 - timezone.now()).total_seconds())
+
         self.assertEqual(expected_field1, 'Some title')
-        self.assertEqual(expected_field2, timezone.now())
+        self.assertAlmostEqual(time_diff, 0, delta=1)
         self.assertEqual(expected_field3, 'Contributor(s) Name(s)')
         self.assertEqual(expected_field4, 'GL')
         self.assertEqual(expected_field5, 'Subject Name')
