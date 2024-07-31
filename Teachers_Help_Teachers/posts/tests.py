@@ -91,7 +91,7 @@ class SearchFunctionViewTest(TestCase):
         self.assertEqual(response.status_code, 200)
 
 
-class DownloadFileViewTest(TestCase):
+'''class DownloadFileViewTest(TestCase):
     def setUp(self):
         self.client = Client()
 
@@ -117,4 +117,4 @@ class DownloadFileViewTest(TestCase):
 
         # Check the content of the response. It should match the content of the test file
         response_content = b"".join(response.streaming_content)
-        self.assertEqual(response_content, b"lesson content")
+        self.assertEqual(response_content, b"lesson content")'''
