@@ -125,6 +125,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 import os
 MEDIA_DIR = os.path.join(BASE_DIR,'/Uploaded_Files')
-
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/Uploaded_Files/'
