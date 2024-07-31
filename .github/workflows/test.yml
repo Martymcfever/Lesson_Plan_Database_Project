@@ -28,16 +28,16 @@ jobs:
       - name: Run Django test for Post Model
         run: |
           cd Teachers_Help_Teachers
-          python manage.py test posts.PostModelTestCase
+          python manage.py test posts.tests.PostModelTestCase
       - name: Run Django test for the Add Function
         run: |
           cd Teachers_Help_Teachers
-          python manage.py test posts.AddFunctionViewTest
+          python manage.py test posts.tests.AddFunctionViewTest
       - name: Run Django test for the Search Function
         run: |
           cd Teachers_Help_Teachers
-          python manage.py test posts.SearchFunctionViewTest
+          python manage.py test posts.tests.SearchFunctionViewTest
       - name: Run Django test for Download File
         run: |
           cd Teachers_Help_Teachers
-          python manage.py test posts.DownloadFileViewTest
+          python manage.py test posts.tests.DownloadFileViewTest
