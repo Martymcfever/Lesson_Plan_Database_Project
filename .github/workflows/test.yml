@@ -34,7 +34,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Create directories for media
-        run: sudo mkdir /Uploaded_Files && sudo chown runner:runner/Uploaded_Files
+        run: |
+          cd Teachers_Help_Teachers
+          sudo mkdir /Uploaded_Files
+          sudo chown runner:runner /Uploaded_Files
 
       - name: Run Django test for Post Model
         run: |
