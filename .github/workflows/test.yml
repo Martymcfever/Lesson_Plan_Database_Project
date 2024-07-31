@@ -2,7 +2,7 @@ name: Django CI
 
 on:
   pull_request:
-    branches: [master, kwcortum-patch-1, KennysBranch]
+    branches: [main, kwcortum-patch-1, KennysBranch]
 jobs:
   test-django-app:
     runs-on: ubuntu-latest
@@ -25,7 +25,17 @@ jobs:
       - name: Install Django
         run: |
           python -m pip install Django
-      - name: Run Django test
+      - name: Run Post Model Test
         run: |
           cd Teachers_Help_Teachers
-          python manage.py test
+          python manage.py test Teachers_Help_Teachers.PostModelTestCase
+      - name: Run Add Function View Test
+        run: |
+          python manage.py test Teachers_Help_Teachers.AddFunctionViewTest
+      - name: Run Download File View Test
+        run: |
+          python manage.py test Teachers_Help_Teachers.DownloadFileViewTest
+      - name: Run Search Function View Test
+        run: |
+          python manage.py test Teachers_Help_Teachers.SearchFunctionViewTest
+          
