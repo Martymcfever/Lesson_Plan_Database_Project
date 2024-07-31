@@ -2,7 +2,7 @@ name: Django CI Pipeline
 
 on:
   pull_request:
-    branches: [main, kwcortum-patch-1, KennysBranch]
+    branches: [kwcortum-patch-1, KennysBranch]
 jobs:
   test-django-app:
     runs-on: ubuntu-latest
