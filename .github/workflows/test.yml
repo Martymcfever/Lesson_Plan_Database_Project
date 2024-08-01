@@ -2,7 +2,7 @@ name: Django CI
 
 on:
   pull_request:
-    branches: [main, kwcortum-patch-1, KennysBranch, Grey\'s-Branch, Trevor\'s-Branch]
+    branches: [main, kwcortum-patch-1, KennysBranch, Grey's-Branch, Trevor's-Branch]
 jobs:
   test-django-app:
     runs-on: ubuntu-latest
