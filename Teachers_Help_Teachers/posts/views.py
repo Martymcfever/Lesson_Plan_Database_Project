@@ -35,7 +35,7 @@ def show_lesson_plan(request, plan_id):
 
 def download_file(request, plan_id):
     plan = Post.objects.get(id = plan_id)
-    filename = plan.lesson_plan.path
+    filename = plan.lesson_plan.url
     response = FileResponse(open(filename, 'rb'))
     return response
 
