@@ -14,3 +14,5 @@ To quickly understand the utility of an item, users can leave a numeric rating o
 Release Notes:
 
 Code Milestone 1: Added the Post model to the Django project to act as the database for websites materials. Some front end aspects have been implemented.
+
+Code Milestone 2: The add function has been implemented and is usable to add items to the Post Django model. In addition the features to search for items by title has been implemented. We are able to view the items and see all fields. While a button to download lesson plans has been created on the front end we are still working on the backend aspect and plan to have it be a priority for milestone 3. Looking forward to milestone 3, we will get the download function working, be able to search by different fields of a model object, implement the verification system, and getting testing more developed.
