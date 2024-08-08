@@ -78,7 +78,7 @@ def add_comment(request, id):
 def search_function(request):
     if request.method == "POST":
         searched = request.POST['searched']
-        results = Post.objects.filter(title__contains=searched)
+        results = Post.objects.filter(title__contains=searched) | Post.objects.filter(grade_level__contains=searched) | Post.objects.filter(subject__contains=searched)
 
         return render(request, "search_function.html",{'searched':searched, 'results':results})
     else:
