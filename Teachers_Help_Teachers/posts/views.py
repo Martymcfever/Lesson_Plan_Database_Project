@@ -59,6 +59,9 @@ def lesson_plan_detail(request, id):
     lesson_plan = get_object_or_404(Post, id=id)
     return render(request, 'show_lesson_plan.html', {'lesson_plan': lesson_plan})
 
+"""add_comment uses CommentForm which links to to the PostForm adding the comments to the bottom of Posts.
+   Tests itself to see if the form is complete otherwise it refreshes the add_comment page 
+"""
 def add_comment(request, id):
     lesson_plan = get_object_or_404(Post, id=id)
     if request.method == 'POST':
