@@ -37,8 +37,9 @@ jobs:
         run: |
           cd Teachers_Help_Teachers
           sudo mkdir /Uploaded_Files
-          sudo chown runner:runner /Uploaded_Files
           cd Uploaded_Files
+          sudo chown runner:runner /Uploaded_Files
+          
           sudo touch lesson.txt
 
       - name: Run Django test for Post Model
