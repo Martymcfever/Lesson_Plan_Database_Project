@@ -32,6 +32,7 @@ class Post(models.Model):
     def __str__(self):
         return self.title  
 
+
 ## Class for Comment Model
 # Attributes: lesson_plan (ForeginKey), name, body, date_added
 # Methods: __str__()
