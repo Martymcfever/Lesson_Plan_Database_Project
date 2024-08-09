@@ -27,7 +27,11 @@ class Post(models.Model):
     """
     def __str__(self):
         return self.title  
-
+"""
+Class for Comment Model
+Attributes:lesson_plan, name, body, date_added
+Methods: __str__()
+"""
 class Comment(models.Model):
     lesson_plan = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
     name = models.CharField(max_length=100)
