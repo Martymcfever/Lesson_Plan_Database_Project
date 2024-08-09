@@ -59,6 +59,7 @@ def lesson_plan_detail(request, id):
     lesson_plan = get_object_or_404(Post, id=id)
     return render(request, 'show_lesson_plan.html', {'lesson_plan': lesson_plan})
 
+
 ## add_comment uses CommentForm to add objects to comment Model
 #  Tests if the form is valid to determine if CommentForm is complete
 def add_comment(request, id):
