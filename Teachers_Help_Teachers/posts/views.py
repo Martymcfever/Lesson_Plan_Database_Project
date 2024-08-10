@@ -34,8 +34,8 @@ def show_lesson_plan(request, plan_id):
 
 ## download_file gives the file url to allow downloads to occur
 def download_file(request, plan_id):
-    plan = Post.objects.get(id = plan_id)
-    filename = plan.lesson_plan.url
+    plan = get_object_or_404(Post,id = plan_id)
+    filename = plan.lesson_plan.path
     response = FileResponse(open(filename, 'rb'))
     return response
 

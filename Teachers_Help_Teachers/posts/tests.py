@@ -5,6 +5,7 @@ from .forms import PostForm
 from datetime import timezone
 from .views import *
 from .models import Post
+import os
 from posts.views import download_file
 # Create your tests here.
 
@@ -122,3 +123,13 @@ class DownloadFileViewTest(TestCase):
         # Check the content of the response. It should match the content of the test file
         response_content = b"".join(response.streaming_content)
         self.assertEqual(response_content, b"lesson content")
+
+    def tearDown(self):
+        # Delete the test file from the file system
+        if os.path.isfile(self.test_post.lesson_plan.path):
+            os.remove(self.test_post.lesson_plan.path)
+
+        # Delete the test post object
+        self.test_post.delete()
+
+        super().tearDown()
