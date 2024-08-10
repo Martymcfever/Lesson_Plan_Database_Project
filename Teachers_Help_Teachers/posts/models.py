@@ -1,19 +1,23 @@
-"""@package docstring 
-model.py 
-Creation of classes that are used as Django Models
-Only class is Post
-"""
+## @package docstring 
+# model.py 
+# Creation of classes that are used as Django Models
+
+
+
+
+
 
 from django.db import models
 
 # Create your models here.
-""" Class for Post Model 
-Attributes: title, pub_date, contributors, grade_level, subject, description, lesson_plan, verified
-Methods: __str__()
-"""
+
+## Class for Post Model
+# Attributes: title, pub_date, contributors, grade_level, subject, description, lesson_plan, verified
+# Methods: __str__()
+
 class Post(models.Model):
-    """Fields to desribe a post of a lesson plan
-    """
+    ## Fields to describe a post of a lesson plan
+
     title = models.CharField(max_length=100, verbose_name= "title")
     pub_date = models.DateTimeField("date published", null=True)
     contributors = models.CharField(max_length=100)
@@ -23,10 +27,15 @@ class Post(models.Model):
     lesson_plan = models.FileField(upload_to='Uploaded_Files/', null=True)
     verified = models.BooleanField(default=False)
 
-    """Allow Post to display as a title field
-    """
+    ## Allow Post to display as a title field
+
     def __str__(self):
         return self.title  
+
+
+## Class for Comment Model
+# Attributes: lesson_plan (ForeginKey), name, body, date_added
+# Methods: __str__()
 
 class Comment(models.Model):
     lesson_plan = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
