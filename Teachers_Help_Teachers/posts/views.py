@@ -7,6 +7,9 @@ from .forms import PostForm, CommentForm
 from django.utils import timezone
 from django.http import HttpResponseRedirect, FileResponse
 from .models import Post
+import random
+from django.conf import settings
+import os
 
 
 
@@ -86,3 +89,21 @@ def search_function(request):
         return render(request, "search_function.html",{'searched':searched, 'results':results})
     else:
         return render(request, "search_function.html")
+
+##random_image function allows the home page to display a random image upon entering the webpage
+def pic_home(request):
+    # Assuming your "Uploaded Files" folder is in the 'media' directory at the root level
+    uploaded_files_dir = os.path.join(settings.BASE_DIR, 'media', 'Uploaded Files')
+
+    # Check if the directory exists
+    if not os.path.exists(uploaded_files_dir):
+        return HttpResponse("Uploaded Files directory not found.", status=404)
+
+    images = [f for f in os.listdir(uploaded_files_dir) if os.path.isfile(os.path.join(uploaded_files_dir, f))]
+    random_image = random.choice(images) if images else None
+    random_image_url = os.path.join(settings.MEDIA_URL, 'Uploaded Files', random_image) if random_image else None
+
+    context = {
+        'random_image_url': random_image_url,
+    }
+    return render(request, 'home.html', context)
