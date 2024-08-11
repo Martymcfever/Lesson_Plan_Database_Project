@@ -3,23 +3,60 @@
 {% block content %}
 <div class="d-flex justify-content-center">
     <div>
-        <h1>This is the homepage of our app so far! I will make it look like the Lo-Fi specs!</h1>
+        <h1>This is the homepage of our app so far!</h1>
     </div>
 </div>
-<div class="container-fluid, col text-center">
-  <div class="row">
-    <div class="col-sm">
-      <h3>Column 1</h3>
-      <p>Lorem ipsum dolor..</p>
+ <!-- Main Container -->
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action">New Today</a>
+                    <a href="#" class="list-group-item list-group-item-action">District Verified</a>
+                    <a href="#" class="list-group-item list-group-item-action">Highest Rated</a>
+                    <a href="#" class="list-group-item list-group-item-action">K-5 Science</a>
+                    <a href="#" class="list-group-item list-group-item-action">SEL</a>
+                    <a href="#" class="list-group-item list-group-item-action">6-8 Mathematics</a>
+                    <a href="#" class="list-group-item list-group-item-action">Phonics Instruction K-2</a>
+                    <a href="#" class="list-group-item list-group-item-action">PBL Social Studies 9-12</a>
+                    <a href="#" class="list-group-item list-group-item-action">Business, Marketing, IT 7-12</a>
+                    <a href="#" class="list-group-item list-group-item-action">STEAM K-12</a>
+                    <a href="#" class="list-group-item list-group-item-action">Common Core ELA</a>
+                    <a href="#" class="list-group-item list-group-item-action">Dual Language Spanish/English</a>
+                    <a href="#" class="list-group-item list-group-item-action">Informational Texts 3-5</a>
+                    <a href="#" class="list-group-item list-group-item-action">World Languages 6-12</a>
+                    <a href="#" class="list-group-item list-group-item-action">Family and Consumer Sciences</a>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="col-md-6">
+                <div class="content-area border">
+                    <!-- Placeholder for dynamic content -->
+                    <h3 class="text-center my-3">Main Content Area</h3>
+                    <div class="content-preview text-center">
+                        <img src="{{ random_image_url }}" class="img-fluid" alt="Content Preview">
+                        <p class="mt-3">This description will actually be a random lesson plan preview...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Content Sidebar -->
+            <div class="col-md-3">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action">Become a collaborator!</a>
+                    <a href="#" class="list-group-item list-group-item-action">Become a verifier!</a>
+                    <a href="#" class="list-group-item list-group-item-action">Become an admin!</a>
+                    <a href="#" class="list-group-item list-group-item-action">Become a database manager!</a>
+                    <a href="#" class="list-group-item list-group-item-action">Become a post reviewer!</a>
+                    <a href="#" class="list-group-item list-group-item-action">Leave us feedback!</a>
+                </div>
+                <div class="external-links mt-3">
+                    <p>External Links</p>
+                    <!-- Add external links here -->
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-sm-8">
-      <h3>Column 2</h3>
-      <p>Lorem ipsum dolor..</p>
-    </div>
-    <div class="col-sm">
-      <h3>Column 3</h3>
-      <p>Lorem ipsum dolor..</p>
-    </div>
-  </div>
-</div>
 {% endblock %}
