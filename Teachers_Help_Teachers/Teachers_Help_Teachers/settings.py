@@ -123,7 +123,7 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MEDIA_DIR = os.path.join(BASE_DIR,'/Uploaded_Files')
+# MEDIA_DIR = os.path.join(BASE_DIR,'/Uploaded_Files')
 
-MEDIA_ROOT = MEDIA_DIR
-MEDIA_URL = '/Uploaded_Files/'
+# MEDIA_ROOT = MEDIA_DIR
+# MEDIA_URL = '/Uploaded_Files/'
