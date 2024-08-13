@@ -13,9 +13,14 @@ body {
     color: #ffffff !important;
 }
 
+li.navbar-nav {
+    margin:2px 15px 2px 15px !important;
+}
+
 .navbar-nav .nav-link:hover {
     background-color: #ffffff !important;
     color: #333333 !important;
+    border-radius: 20px;
 }
 
 .wrapper {
@@ -70,4 +75,3 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
-

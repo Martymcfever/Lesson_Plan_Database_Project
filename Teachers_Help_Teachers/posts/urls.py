@@ -1,15 +1,17 @@
-"""@package docstring 
-urls.py
-list of paths that is utilized for the webpage
-"""
+## @packge docstring
+#  urls.py
+#  list of paths that is utilized for the webpage
 
 from django.urls import path
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 
-""" urlpatterns list that holds paths of urls
-"""
+## urlpattern list that holds paths of urls
 urlpatterns = [
-    path("", views.home, name="home"),
+
+    path('', views.home, name='home'),
+    path("", views.pic_home, name="pic_home"),
     path('Lesson Plans', views.plans, name="plans"),
     path("add", views.add_function, name="add"),
     path("search", views.search_function, name="search"),     
@@ -19,3 +21,6 @@ urlpatterns = [
     path("show_lesson_plan/<int:id>/add-comment", views.add_comment, name='add_comment'),
     
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
