@@ -10,6 +10,8 @@ from .models import Post
 import random
 from django.conf import settings
 import os
+from django.views.decorators.csrf import csrf_protect
+
 
 
 
@@ -36,6 +38,7 @@ def show_lesson_plan(request, plan_id):
     return render(request, "show_lesson_plan.html", {'lesson_plan': lesson_plan})
 
 ## download_file gives the file url to allow downloads to occur
+@csrf_protect
 def download_file(request, plan_id):
     plan = get_object_or_404(Post,id = plan_id)
     filename = plan.lesson_plan.path
@@ -44,6 +47,7 @@ def download_file(request, plan_id):
 
 ## add_function uses PostForm to add objects to Post Model
 #  Tests if the form is valid to determine if PostForm is complete
+@csrf_protect
 def add_function(request):
     if (request.method == "POST"):
         form = PostForm(request.POST,request.FILES)
@@ -65,6 +69,7 @@ def lesson_plan_detail(request, id):
 
 ## add_comment uses CommentForm to add objects to comment Model
 #  Tests if the form is valid to determine if CommentForm is complete
+@csrf_protect
 def add_comment(request, id):
     lesson_plan = get_object_or_404(Post, id=id)
     if request.method == 'POST':
