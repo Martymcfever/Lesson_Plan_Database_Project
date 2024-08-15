@@ -1,6 +1,11 @@
+## @package docstring 
+# tests-server.py 
+# A file that has the tests that are related to server connectivity
+
 from django.test import TestCase, Client
 import requests
 
+## This tests asserts if when the run server command is called that the webpage is actually up on the server and running.
 class ServerRunningTest(TestCase):
     def setUp(self):
         self.client = Client()
