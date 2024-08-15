@@ -1,3 +1,8 @@
+## @package docstring 
+# tests.py 
+# Creation of unit tests that test the different functions implemented in the webpage
+# These tests include creating a post object, the add function, the search function, and the download function
+
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import TestCase, Client
 from django.urls import reverse
@@ -9,7 +14,10 @@ import os
 from posts.views import download_file
 # Create your tests here.
 
+## 
 
+## The test that creates a dummy object of the Post model
+#  That looks to see that the object is correctly stored in the model.
 class PostModelTestCase(TestCase):
     def setUp(self):
         dummy_file = SimpleUploadedFile('test.txt', b'Test content')
@@ -44,7 +52,8 @@ class PostModelTestCase(TestCase):
     def tearDown(self):
         self.post.delete()
 
-
+## Tests to see if the add function of the webpage is working correctly.
+#  This includes creating a Post object and then looking to see if the PostForm class is being used
 class AddFunctionViewTest(TestCase):
     def setUp(self):
         self.client = Client()
@@ -71,6 +80,8 @@ class AddFunctionViewTest(TestCase):
         response = self.client.get(self.add_url)
         self.assertIsInstance(response.context['form'], PostForm)
 
+## This test creates a post object with a title to see if the search function
+#  will correctly display the object in the results list.
 class SearchFunctionViewTest(TestCase):
 
     def setUp(self):
@@ -95,7 +106,8 @@ class SearchFunctionViewTest(TestCase):
         # Check the response status
         self.assertEqual(response.status_code, 200)
 
-
+## This test will create a Post object and use the download URL of the file in the object.
+#  it will then use the download function view and see if the URL matches what the object has.
 class DownloadFileViewTest(TestCase):
     def setUp(self):
         self.client = Client()
